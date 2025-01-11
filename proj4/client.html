@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        body {
+            background-color: #a282e2;
+            font-family: verdana, tahoma, geneva, sans-serif;
+            font-size: 20px;
+        }
+
+        @media (max-width: 990px) {
+            body,td,center {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <form method="post">
+        What is your name? <input type="text" name="username"><br>
+        What is your password? <input type="password" name="pw"><br>
+        <input type="submit" value="Log in"><br>
+    </form> -->
+
+    <script>
+        const on_push = () => {
+            let payload = {
+                action: 'push_button',
+            };
+            fetch('ajax', {
+                    body: JSON.stringify(payload),
+                    cache: "no-cache",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    method: "POST",
+                })
+                .then(response => response.text())
+                .then(text => {
+                    console.log(`The server replied ${text}`);
+                    let response_ob = JSON.parse(text);
+                    let el = document.getElementById('how_many');
+                    el.innerHTML = `You have pushed that button ${response_ob.push_count} times.`;
+                })
+                .catch(ex => {
+                    console.log(`An error occurred: ${ex}\n${ex.stack}`);
+                });
+
+        }
+    </script>
+    <button onclick="on_push()">Never push me</button>
+    
+
+    <h1>Have a nice day!</h1>
+    <p>
+        And here is a picture of a mushroom:<br>
+        <img src="mushroom.png">
+    </p>
+
+
+    <p>
+        Click
+        <a href = "https://www.netflix.com/">
+            here
+        </a>
+    </p>
+
+    <p id = 'how_many'> 
+        You have pushed that button 0 times.
+    </p>
+
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        body {
+            background-color: #a282e2;
+            font-family: verdana, tahoma, geneva, sans-serif;
+            font-size: 20px;
+        }
+
+        @media (max-width: 990px) {
+            body,td,center {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+<body>   
+
+    <div id = "content">
+
+        <div id = "textbox">
+            <input type = "text" id = "name" placeholder = "Enter your name"></input>
+            <button onclick = "startGame()">
+                Start!
+            </button>
+        </div>
+
+        <canvas id = "myCanvas" width = "1000" height = "500" style = "border:1px solid #cccccc; display: none;">
+        </canvas>
+
+        <script src = "game.js" ></script>
+
+    </div>
+
+    
+
+</body>
+</html>
